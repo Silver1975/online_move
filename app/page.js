@@ -1,95 +1,80 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from './page.module.css';
+import Header from './components/Header'; // Імпортуємо хедер
+
+async function fetchData(page = 1) {
+  const res = await fetch(`https://yts.mx/api/v2/list_movies.json?limit=15&page=${page}`);
+  const result = await res.json();
+
+  if (!result || !result.data || !result.data.movies) {
+    throw new Error('Movies not found');
+  }
+
+  return result.data.movies;
+}
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const currentPage = parseInt(searchParams.get('page')) || 1;
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadMovies = async () => {
+      setLoading(true);
+      const fetchedMovies = await fetchData(currentPage);
+      setMovies(fetchedMovies);
+      setLoading(false);
+    };
+
+    loadMovies();
+  }, [currentPage]);
+
   return (
     <div className={styles.page}>
+            
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+        {loading ? (
+          <div className={styles.skeletonContainer}>
+            {[...Array(15)].map((_, index) => (
+              <div key={index} className={styles.skeletonCard}>
+                <div style={{ height: '300px', width: '200px', backgroundColor: '#e0e0e0', marginBottom: '10px' }} />
+                <div style={{ height: '20px', width: '150px', backgroundColor: '#e0e0e0' }} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          movies.map((movie) => (
+            <div key={movie.id} className={styles.movieCard}>
+              <Image
+                className={styles.moviePoster}
+                src={movie.medium_cover_image}
+                alt={movie.title}
+                width={200}
+                height={300}
+              />
+              <div className={styles.movieTitle}>
+                <Link href={`/movies/${movie.id}?page=${currentPage}`}>{movie.title}</Link>
+              </div>
+            </div>
+          ))
+        )}
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <div className={styles.pagination}>
+        <Link href={`/?page=${currentPage - 1}`} passHref>
+          <button disabled={currentPage === 1}>Попередня</button>
+        </Link>
+        <span>Сторінка {currentPage}</span>
+        <Link href={`/?page=${currentPage + 1}`} passHref>
+          <button>Наступна</button>
+        </Link>
+      </div>
     </div>
   );
 }

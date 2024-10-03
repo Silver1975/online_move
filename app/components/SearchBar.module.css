@@ -1,0 +1,28 @@
+/* styles/SearchBar.module.css */
+.searchForm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .searchInput {
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+  .searchButton {
+    padding: 8px 16px;
+    background-color: #457b9d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+  
+  .searchButton:hover {
+    background-color: #a8dadc;
+  }

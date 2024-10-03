@@ -1,0 +1,17 @@
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1d3557;
+    border-top: 2px solid #2c2c2c;
+    color: #f1faee;
+    position: sticky; /* Використовуємо sticky замість absolute */
+    bottom: 0;
+    margin-top: auto; /* Додає відступ внизу сторінки */
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 14px;
+  }

@@ -1,0 +1,226 @@
+/* Загальні стилі для сторінки фільму */
+/* Загальні стилі для сторінки фільму */
+.moviePage {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.breadcrumbs {
+  width: 100%;
+  max-width: 1200px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+  text-align: left;
+}
+
+/* Основний контейнер для постера і опису фільму */
+.movieDetails {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.poster {
+  flex-shrink: 0;
+}
+
+/* Адаптивний розмір зображення */
+.posterImage {
+  width: 100%;
+  max-width: 300px; /* Максимальна ширина зображення */
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Інформаційний блок */
+.info {
+  flex: 1;
+  max-width: 600px;
+}
+
+.title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.year {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.genres {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.genre {
+  background-color: #ececec;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.summary {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.noGenres {
+  color: #999;
+  font-style: italic;
+}
+
+/* Адаптивні стилі для мобільних пристроїв */
+@media (max-width: 768px) {
+  .movieDetails {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .poster {
+    margin-bottom: 20px;
+  }
+
+  .info {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .year {
+    font-size: 1.1rem;
+  }
+
+  .summary {
+    font-size: 1rem;
+  }
+
+  .breadcrumbs {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumbs {
+    font-size: 0.8rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .year {
+    font-size: 1rem;
+  }
+
+  .summary {
+    font-size: 0.9rem;
+  }
+
+  .genre {
+    padding: 3px 7px;
+  }
+
+  .noGenres {
+    font-size: 0.9rem;
+  }
+}
+
+/* Скелетони для завантаження */
+.skeletonPage {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.skeletonBreadcrumbs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.skeletonDivider {
+  font-size: 20px;
+  color: #ccc;
+}
+
+.skeletonText {
+  display: inline-block;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+.skeletonMovieDetails {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.skeletonPoster {
+  width: 300px;
+  height: 450px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+}
+
+.skeletonInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  max-width: 600px;
+}
+
+.skeletonTitle,
+.skeletonYear,
+.skeletonSummary,
+.skeletonGenre {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+.skeletonTitle {
+  width: 60%;
+  height: 30px;
+}
+
+.skeletonYear {
+  width: 30%;
+  height: 20px;
+}
+
+.skeletonGenres {
+  display: flex;
+  gap: 10px;
+}
+
+.skeletonGenre {
+  width: 50px;
+  height: 20px;
+}
+
+.skeletonSummary {
+  width: 100%;
+  height: 20px;
+}
