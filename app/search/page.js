@@ -35,7 +35,16 @@ export default function SearchPage() {
     loadMovies();
   }, [query, currentPage]);
 
-  if (loading) return <p>Завантаження...</p>;
+  if (loading) return (
+    <div className={styles.skeletonContainer}>
+      {[...Array(15)].map((_, index) => (
+        <div key={index} className={styles.skeletonCard}>
+          <div style={{ height: '300px', width: '200px', backgroundColor: '#e0e0e0', marginBottom: '10px', borderRadius: '8px' }} />
+          <div style={{ height: '20px', width: '150px', backgroundColor: '#e0e0e0' , borderRadius: '4px', textAlign: 'center'}} />
+        </div>
+      ))}
+    </div>
+  )
 
   return (
     <div className={styles.page}>

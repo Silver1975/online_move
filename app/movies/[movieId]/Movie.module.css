@@ -8,12 +8,11 @@
 }
 
 .breadcrumbs {
-  width: 100%;
-  max-width: 1200px;
-  font-size: 1rem;
-  margin-bottom: 20px;
-  color: #555;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  margin-top: 80px; /* Відступ, щоб уникнути перекриття з хедером */
 }
 
 /* Основний контейнер для постера і опису фільму */

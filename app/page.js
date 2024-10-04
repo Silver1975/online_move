@@ -43,8 +43,8 @@ export default function Home() {
           <div className={styles.skeletonContainer}>
             {[...Array(15)].map((_, index) => (
               <div key={index} className={styles.skeletonCard}>
-                <div style={{ height: '300px', width: '200px', backgroundColor: '#e0e0e0', marginBottom: '10px' }} />
-                <div style={{ height: '20px', width: '150px', backgroundColor: '#e0e0e0' }} />
+                <div style={{ height: '300px', width: '200px', backgroundColor: '#e0e0e0', marginBottom: '10px', borderRadius: '8px' }} />
+                <div style={{ height: '20px', width: '150px', backgroundColor: '#e0e0e0' , borderRadius: '4px', textAlign: 'center'}} />
               </div>
             ))}
           </div>
