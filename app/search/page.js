@@ -1,8 +1,10 @@
 "use client";
+
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import Pagination from '../components/Pagination'; // Підключаємо компонент пагінації
 import styles from '../page.module.css';
 
 async function searchMovies(query, page = 1) {
@@ -10,41 +12,70 @@ async function searchMovies(query, page = 1) {
   const result = await res.json();
 
   if (!result || !result.data || !result.data.movies) {
-    return [];
+    return { movies: [], totalResults: 0 };
   }
 
-  return result.data.movies;
+  return {
+    movies: result.data.movies,
+    totalResults: result.data.movie_count, // Додаємо загальну кількість результатів
+  };
 }
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const query = searchParams.get('query') || '';
   const currentPage = parseInt(searchParams.get('page')) || 1;
 
   const [movies, setMovies] = useState([]);
+  const [totalResults, setTotalResults] = useState(0); // Стан для загальної кількості результатів
   const [loading, setLoading] = useState(true);
+
+  const limit = 15; // Кількість фільмів на сторінці
 
   useEffect(() => {
     const loadMovies = async () => {
       setLoading(true);
-      const fetchedMovies = await searchMovies(query, currentPage);
-      setMovies(fetchedMovies);
+      const { movies, totalResults } = await searchMovies(query, currentPage);
+      setMovies(movies);
+      setTotalResults(totalResults); // Зберігаємо загальну кількість результатів
       setLoading(false);
     };
 
     loadMovies();
   }, [query, currentPage]);
 
-  if (loading) return (
-    <div className={styles.skeletonContainer}>
-      {[...Array(15)].map((_, index) => (
-        <div key={index} className={styles.skeletonCard}>
-          <div style={{ height: '300px', width: '200px', backgroundColor: '#e0e0e0', marginBottom: '10px', borderRadius: '8px' }} />
-          <div style={{ height: '20px', width: '150px', backgroundColor: '#e0e0e0' , borderRadius: '4px', textAlign: 'center'}} />
-        </div>
-      ))}
-    </div>
-  )
+  const handlePageChange = (page) => {
+    router.push(`/search?query=${query}&page=${page}`);
+  };
+
+  if (loading)
+    return (
+      <div className={styles.skeletonContainer}>
+        {[...Array(15)].map((_, index) => (
+          <div key={index} className={styles.skeletonCard}>
+            <div
+              style={{
+                height: '300px',
+                width: '200px',
+                backgroundColor: '#e0e0e0',
+                marginBottom: '10px',
+                borderRadius: '8px',
+              }}
+            />
+            <div
+              style={{
+                height: '20px',
+                width: '150px',
+                backgroundColor: '#e0e0e0',
+                borderRadius: '4px',
+                textAlign: 'center',
+              }}
+            />
+          </div>
+        ))}
+      </div>
+    );
 
   return (
     <div className={styles.page}>
@@ -70,17 +101,13 @@ export default function SearchPage() {
         )}
       </main>
 
-      {/* Показуємо пагінацію лише якщо знайдено 15 фільмів */}
-      {movies.length === 15 && (
-        <div className={styles.pagination}>
-          <Link href={`/search?query=${query}&page=${currentPage - 1}`} passHref>
-            <button disabled={currentPage === 1}>Попередня</button>
-          </Link>
-          <span>Сторінка {currentPage}</span>
-          <Link href={`/search?query=${query}&page=${currentPage + 1}`} passHref>
-            <button>Наступна</button>
-          </Link>
-        </div>
+      {/* Пагінація */}
+      {totalResults > limit && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={Math.ceil(totalResults / limit)} // Розраховуємо загальну кількість сторінок
+          onPageChange={handlePageChange}
+        />
       )}
     </div>
   );

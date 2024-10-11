@@ -57,17 +57,21 @@
 
 .genres {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  
   list-style: none;
   padding: 0;
   margin-bottom: 20px;
+  
 }
 
 .genre {
   background-color: #ececec;
   border-radius: 5px;
   padding: 5px 10px;
-}
+  margin: 2px; /* Виправлена властивість */
+  text-align: center;
+} 
 
 .summary {
   font-size: 1.1rem;
@@ -103,6 +107,15 @@
     font-size: 1.1rem;
   }
 
+  .genres {
+    justify-content: center; /* Вирівнюємо жанри по центру */
+  }
+
+  .genre {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
   .summary {
     font-size: 1rem;
   }
@@ -129,8 +142,13 @@
     font-size: 0.9rem;
   }
 
+  .genres {
+    gap: 6px;
+  }
+
   .genre {
-    padding: 3px 7px;
+    padding: 4px 8px;
+    font-size: 10px;
   }
 
   .noGenres {

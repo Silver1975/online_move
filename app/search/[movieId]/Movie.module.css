@@ -56,6 +56,7 @@
 
 .genres {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   list-style: none;
   padding: 0;
@@ -103,6 +104,15 @@
     font-size: 1.1rem;
   }
 
+  .genres {
+    justify-content: center; /* Вирівнюємо жанри по центру */
+  }
+
+  .genre {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
   .summary {
     font-size: 1rem;
   }
@@ -130,8 +140,13 @@
     font-size: 0.9rem;
   }
 
+  .genres {
+    gap: 6px;
+  }
+
   .genre {
-    padding: 3px 7px;
+    padding: 4px 8px;
+    font-size: 10px;
   }
 
   .noGenres {
