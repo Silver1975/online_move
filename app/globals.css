@@ -9,6 +9,23 @@
     --foreground: #ededed;
   }
 }
+/* nanum-myeongjo-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nanum Myeongjo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/nanum-myeongjo-v22-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* quicksand-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/quicksand-v31-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 
 body, html {
   margin: 0;
@@ -17,6 +34,7 @@ body, html {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #101010; /* Основний фон */
 }
 
 body {
@@ -43,7 +61,7 @@ header {
 
 /* Контейнер, що вирівнюється по ширині сторінки */
 .headerContainer {
-  max-width: 1200px; /* Відповідає макс. ширині сторінки */
+  max-width: 1366px; /* Відповідає макс. ширині сторінки */
   width: 100%; /* Контейнер заповнює всю доступну ширину */
   padding: 0 50px; /* Відступи для вмісту хедера */
   display: flex;
@@ -74,5 +92,6 @@ header a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 80px;
+  
 }
+

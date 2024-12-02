@@ -1,0 +1,76 @@
+.sliderContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    
+  }
+  
+  .slider {
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+    width: 100%;
+    padding: 10px 0;
+  }
+  
+  .actor {
+    flex: 0 0 calc(16.66% - 10px); /* 6 акторів */
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .actorImage {
+    width: 118px;
+    height: 118px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .actorName {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+  }
+  
+  .arrowLeft,
+  .arrowRight {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .arrowLeft {
+    left: 10px;
+  }
+  
+  .arrowRight {
+    right: 10px;
+  }
+  
+  .arrowLeft:disabled,
+  .arrowRight:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .noActors {
+    text-align: center;
+    color: #aaa;
+    font-size: 16px;
+  }

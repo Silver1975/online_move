@@ -1,0 +1,50 @@
+.profilePage {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #181818;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+.profileContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  background-color: #101010;
+  color: white;
+  border: 1px solid #ff7043;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.editButton, .saveButton, .cancelButton, .logoutButton  {
+  background-color: #ff7043;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.editButton:hover, .saveButton:hover, .logoutButton:hover  {
+  background-color: white;
+  color: #ff7043;
+}

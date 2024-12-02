@@ -1,0 +1,82 @@
+.heroSection {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 0;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .content {
+    text-align: left;
+  }
+  
+  .content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .flexElements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .element {
+    background-color: #222;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .actionRow {
+    margin-top: 20px;
+  }
+  
+  .watchNow {
+    background-color: #ff7043;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  .tabSection {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+  }
+  
+  .tabItem {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .tabContent {
+    margin-top: 30px;
+  }
+  
+  .contentSection {
+    display: none;
+  }
+  
+  #tab1:checked ~ .tabContent #content1,
+  #tab2:checked ~ .tabContent #content2,
+  #tab3:checked ~ .tabContent #content3,
+  #tab4:checked ~ .tabContent #content4,
+  #tab5:checked ~ .tabContent #content5 {
+    display: block;
+  }

@@ -1,0 +1,90 @@
+.slider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .navButton {
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+  
+  .navButton:disabled {
+    background: #888;
+    cursor: not-allowed;
+  }
+  
+  .episodes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    flex: 1;
+  }
+  
+  .box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .boxImage {
+    position: relative;
+  }
+  
+  .image {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .imageText {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  .boxSubtitle {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .boxTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .boxDescription {
+    font-size: 14px;
+    color: #444;
+  }
+
+  .watchLink {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 8px;
+    transition: background-color 0.3s;
+  }
+  
+  .watchLink:hover {
+    background-color: #0056b3;
+  }

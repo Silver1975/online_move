@@ -1,0 +1,17 @@
+/* Кнопка списку бажань */
+.wishlistButton {
+    width: 24px;
+    height: 24px;
+    background-color: #101010;
+    background-image: url('../img/bi_bookmark.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Зміна зображення при наведенні курсора */
+  .wishlistButton:hover {
+    background-image: url('../img/variant6.png');
+  }

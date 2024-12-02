@@ -1,0 +1,176 @@
+.slider {
+  width: 100%;
+  max-width: 1200px;
+  height: 540px;
+  margin: 10px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slideImage {
+  width: 100%;
+  height: 110%;
+  object-fit: cover;
+}
+
+.slideTitle {
+  position: absolute;
+  bottom: 30%;
+  left: 10%;
+  color: #ff7043;
+  font-size: 48px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.slideDescription {
+  width: 650px;
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0;
+  color: white;
+}
+
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.arrowLeft {
+  left: 10px;
+}
+
+.arrowRight {
+  right: 10px;
+}
+
+.arrowLeft:hover,
+.arrowRight:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.button {
+  width: 212px;
+  height: 44px;
+  position: absolute;
+  bottom: 10%;
+  left: 15%;
+  background-color: #FF7043;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Скелетон */
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 540px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+}
+
+.skeletonImage {
+  width: 100%;
+  height: 75%;
+  background-color: #d0d0d0;
+  animation: pulse 1.5s infinite;
+  border-radius: 8px;
+}
+
+.skeletonText {
+  width: 50%;
+  height: 20px;
+  background-color: #d0d0d0;
+  animation: pulse 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #d0d0d0;
+  }
+  50% {
+    background-color: #c0c0c0;
+  }
+  100% {
+    background-color: #d0d0d0;
+  }
+
+}
+/* Адаптивні стилі */
+@media (max-width: 1200px) {
+  .slideTitle {
+    font-size: 36px;
+  }
+  .slideDescription {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .arrowLeft,
+  .arrowRight {
+    font-size: 1.5rem;
+  }
+
+  .textContainer {
+    bottom: 5%;
+    left: 5%;
+  }
+
+  .slideTitle {
+    font-size: 28px;
+  }
+
+  .slideDescription {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .arrowLeft,
+  .arrowRight {
+    font-size: 1.2rem;
+  }
+
+  .textContainer {
+    bottom: 5%;
+    left: 5%;
+  }
+
+  .slideTitle {
+    font-size: 20px;
+  }
+
+  .slideDescription {
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,50 @@
+.searchPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.searchPage h1{
+  color:azure;
+}
+
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.movieCard {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+}
+
+.posterContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.poster {
+  width: 300px;
+  height: 200px;
+  display: block;
+}
+
+.movieTitle {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #999;
+}
+ 

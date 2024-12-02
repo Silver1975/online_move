@@ -1,0 +1,116 @@
+.authForm {
+  background-color: #181818;
+  padding: 30px;
+  border-radius: 0;
+  max-width: 400px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.inputField {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #ff7043;
+  background-color: #101010;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.inputField::placeholder {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  color: #e0e0e0;
+}
+
+.submitButton {
+  width: 306px;
+  height: 44px;
+  background-color: #ff7043;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 0 auto;
+}
+
+.submitButton:hover {
+  background-color: white;
+  color: #ff7043;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.registerLink {
+  display: flex; /* Встановлюємо flex для розташування в одну лінію */
+  justify-content: center; /* Центруємо по горизонталі */
+  align-items: center; /* Вирівнюємо по вертикалі */
+  gap: 5px; /* Проміжок між текстом і посиланням */
+  margin-top: 10px;
+}
+
+.registerLink p {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  color: #e0e0e0;
+}
+
+.registerLink a {
+  color: #ff7043;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.registerLink a:hover {
+  text-decoration: underline;
+}
+
+  
+  /* Адаптивність для мобільних пристроїв */
+  @media (max-width: 768px) {
+    .authForm {
+      width: 90%;
+      margin: 30px auto;
+      padding: 15px;
+    }
+  
+    .title {
+      font-size: 24px;
+    }
+  
+    .input{
+        font-size: 14px;
+        padding: 8px;
+      }
+
+    .select {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    .authButton {
+      padding: 8px;
+      font-size: 16px;
+    }
+  }

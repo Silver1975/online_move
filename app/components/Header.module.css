@@ -1,62 +1,124 @@
 .header {
+  background-color: #101010;
   width: 100%;
-  background-color: #1d3557;
-  color: #f1faee;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+  padding: 20px 0;
+ 
+  margin: 0; /* Прибираємо зайві зовнішні відступи */
 }
 
-/* Контейнер для вмісту */
 .container {
-  max-width: 1200px; /* Максимальна ширина для великих екранів */
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 15px 30px;
+  padding: 0 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.logo a {
-  text-decoration: none;
-  color: #f1faee;
-}
-
-.nav {
-  display: flex;
+  align-items: center;
   gap: 20px;
 }
-
-.nav a {
+/* Лого */
+.logo a {
+  font-family: 'Nanum Myeongjo', serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  color: #ffffff;
   text-decoration: none;
-  color: #f1faee;
 }
 
-.nav a:hover {
-  text-decoration: underline;
+/* Навігація */
+.nav {
+  flex: 1; /* Займає доступний простір */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-/* Адаптивні стилі для планшетів */
+.menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.menu a {
+  width: 40px;
+  height: 17px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 4px 8px;
+
+}
+
+.menu a:hover {
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #ff7043;
+  border-radius: 5px;
+  
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Відстань між пошуком і кнопкою списку бажань */
+}
+
+.authButton {
+  width: 24px;
+    height: 24px;
+    background-color: #101010;
+    background-image: url('../img/Property 1=ic_sharp-account-circle.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    margin-left: 0;
+}
+
+.authButton:hover {
+  background-image: url('../img/Property 1=Variant8.png');
+
+}
+
+/* Адаптивний дизайн для планшетів і мобільних */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    padding: 10px 20px;
+    align-items: center;
   }
 
   .nav {
-    margin-top: 10px;
+    margin: 10px 0;
   }
-}
 
-/* Адаптивні стилі для мобільних пристроїв */
-@media (max-width: 480px) {
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo a {
+    font-size: 32px;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Відстань між пошуком і кнопкою списку бажань */
+  }
+ 
+}
+ /* Адаптивні стилі для мобільних пристроїв */
+ @media (max-width: 480px) {
+  
   .container {
     align-items: flex-start;
     padding: 10px;
@@ -66,11 +128,9 @@
     display: none; /* Приховуємо навігацію на маленьких екранах */
   }
 
-  .searchBar {
-    margin-top: 10px;
-  }
+  
 
   .logo {
     font-size: 18px;
   }
-}
+ }

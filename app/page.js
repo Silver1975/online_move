@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import Slider from './components/Slider';
+import MoviesSlider from "./components/MoviesSlider";
+import ComediesSlider from "./components/ComediesSlider";
+import MoviesForChildrenSlider from './components/MoviesForChildrenSlider';
 import Pagination from './components/Pagination'; // Підключаємо наш компонент пагінації
 import styles from './page.module.css';
 
@@ -47,37 +51,17 @@ export default function Home() {
   };
 
   return (
+   
     <div className={styles.page}>
-      <main className={styles.main}>
-        {loading ? (
-          <div className={styles.skeletonContainer}>
-          {[...Array(15)].map((_, index) => (
-            <div key={index} className={styles.skeletonCard}>
-              <div style={{ height: '300px', width: '200px', backgroundColor: '#e0e0e0', marginBottom: '10px', borderRadius: '8px' }} />
-              <div style={{ height: '20px', width: '150px', backgroundColor: '#e0e0e0' , borderRadius: '4px', textAlign: 'center'}} />
-            </div>
-          ))}
-        </div>
-        ) : (
-          movies.map((movie) => (
-            <div key={movie.id} className={styles.movieCard}>
-              <Image
-                className={styles.moviePoster}
-                src={movie.medium_cover_image}
-                alt={movie.title}
-                width={200}
-                height={300}
-              />
-              <div className={styles.movieTitle}>
-                <Link href={`/movies/${movie.id}?page=${currentPage}`}>{movie.title}</Link>
-              </div>
-            </div>
-          ))
-        )}
-      </main>
+       <Slider />
+       <p className={styles.sectionTitle}>For children</p>
+       <MoviesForChildrenSlider />
+       <p className={styles.sectionTitle}>Top drams</p> 
+       <MoviesSlider />
+       <p className={styles.sectionTitle}>For funy evening</p> 
+      <ComediesSlider />
 
-      {/* Пагінація */}
-      <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+    
     </div>
   );
 }

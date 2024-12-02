@@ -2,31 +2,30 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import styles from './SearchBar.module.css'; // Створіть відповідний CSS файл для стилізації
+import styles from './SearchBar.module.css'; // Підключаємо стилі
 
 export default function SearchBar() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [query, setQuery] = useState('');
   const router = useRouter();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (searchTerm.trim()) {
-      router.push(`/search?query=${searchTerm}`);
+    if (query.trim()) {
+      router.push(`/search?query=${query}`);
+      setQuery(''); // Очистити поле після пошуку
     }
   };
 
   return (
-    <form onSubmit={handleSearch} className={styles.searchForm}>
+    <form onSubmit={handleSearch} className={styles.searchBar}>
       <input
         type="text"
+        placeholder="Search..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
         className={styles.searchInput}
-        placeholder="Пошук фільмів..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <button type="submit" className={styles.searchButton}>
-        Пошук
-      </button>
+      <button type="submit" className={styles.searchButton}></button>
     </form>
   );
 }

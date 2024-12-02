@@ -3,8 +3,8 @@
     width: 100%;
     text-align: center;
     padding: 20px 0;
-    background-color: #1d3557;
-    border-top: 2px solid #2c2c2c;
+    background-color: #101010;
+    border-top: 2px solid #ffffff;
     color: #f1faee;
     position: sticky; /* Використовуємо sticky замість absolute */
     bottom: 0;

@@ -1,0 +1,66 @@
+.sliderWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sliderContainer {
+    display: flex;
+    gap: 16px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding: 16px 0;
+    flex: 1;
+    scrollbar-width: none; /* Для Firefox */
+  }
+  
+  .sliderContainer::-webkit-scrollbar {
+    display: none; /* Приховати скролбар */
+  }
+  
+  .box1 {
+    flex: 0 0 calc(25% - 16px);
+    display: flex;
+    justify-content: center;
+  }
+  
+  .boxImage1 img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  
+  .boxImage1 img:hover {
+    transform: scale(1.05);
+  }
+  
+  .scrollBbutton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+  }
+  
+  .scrollButton:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .scrollButtonLeft {
+    left: -20px;
+  }
+  
+  .scrollButtonRight {
+    right: -20px;
+  }

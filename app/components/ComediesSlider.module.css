@@ -1,0 +1,92 @@
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .slidesContainer {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .box {
+    flex: 1 1 calc(25% - 16px); /* Забезпечує відображення до 4-х елементів */
+    max-width: calc(25% - 16px);
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  
+  .box:nth-child(n+2) {
+    text-align: center; /* Упевнюємося, що текст рівномірно розташований */
+  }
+  
+  .boxImage img {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .boxImage img:hover {
+    transform: scale(1.05);
+  }
+  
+  .arrowLeft,
+  .arrowRight {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .arrowLeft {
+    left: 10px;
+  }
+  
+  .arrowRight {
+    right: 10px;
+  }
+  
+  
+  .slidesContainer {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .skeletonBox {
+    width: 317px; /* Ширина картки */
+    height: 200px; /* Висота картки */
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .skeletonImage {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #f3f3f3 25%, #ecebeb 50%, #f3f3f3 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+  }
+  
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
