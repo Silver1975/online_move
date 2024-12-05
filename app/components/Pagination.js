@@ -41,7 +41,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(1)}
         disabled={currentPage === 1}
       >
-        &laquo; Перша
+        &laquo; First
       </button>
 
       {/* Кнопка переходу на попередню сторінку */}
@@ -85,7 +85,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(totalPages)}
         disabled={currentPage === totalPages}
       >
-        Остання &raquo;
+        Lost &raquo;
       </button>
     </div>
   );

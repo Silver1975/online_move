@@ -1,0 +1,40 @@
+.errorMessage {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .noFavorites {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .favoritesPage {
+    padding: 20px;
+    color: white;
+  }
+  
+  .moviesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .movieCard {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+  }
+  
+  .moviePoster {
+    width: 100%;
+    border-radius: 4px;
+  }
+  
+  .movieInfo {
+    margin-top: 10px;
+  }

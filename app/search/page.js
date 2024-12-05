@@ -114,6 +114,7 @@ export default function SearchPage() {
   return (
     <div className={styles.page}>
       <h1 style={{textAlign: "center", color:"#fff"}}>Результати пошуку для: "{query}"</h1>
+      <p style={{textAlign: "center",margin:"20px"}}><Link href={`/advancedsearch`} style={{color:"#fff", padding:"5px 10px", borderRadius:"4px", textDecoration:"none",backgroundColor:"#0070f3"}}>Advanced Search</Link></p>
       <main className={styles.main}>
       
         {movies.length > 0 ? (

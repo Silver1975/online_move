@@ -53,7 +53,7 @@ export default function MoviePage() {
               <div className={styles.element}>{movie.restrictedRating || "No rating"}</div>
             </div>
             <div className={styles.actionRow}>
-              <button className={styles.watchNow}>Watch now</button>
+              <button className={styles.watchNow}>Watch now</button> <button className={styles.bookmark}></button>
             </div>
           </div>
         </div>

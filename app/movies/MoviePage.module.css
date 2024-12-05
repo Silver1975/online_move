@@ -53,6 +53,17 @@
     text-transform: uppercase;
   }
   
+.bookmark{
+width: 44px;
+height: 44px;
+background-color: #2f2522;
+background-image: "../img/vector-bookmark.svg";
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+border-radius: 50%;
+}
+
   .tabSection {
     background-color: #f9f9f9;
     padding: 50px 0;

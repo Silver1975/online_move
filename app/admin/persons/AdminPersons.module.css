@@ -1,0 +1,42 @@
+.container {
+    padding: 20px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .personList {
+    list-style: none;
+    padding: 0;
+    color: #fff;
+  }
+  
+  .personItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .personImage {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .submitButton {
+    background-color: #ff7043;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover {
+    background-color: #ff5722;
+  }

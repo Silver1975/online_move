@@ -1,0 +1,80 @@
+/* Загальні стилі для сторінки */
+.advancedSearchPage {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .searchControls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  .results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .skeletonGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .skeletonCard {
+    width: 300px;
+    height: 200px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+  }
+  
+  .movieCard {
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .movieCard h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+  
+  .movieCard p {
+    font-size: 14px;
+    margin: 0 0 10px;
+  }
+  
+  .movieLink {
+    color: #0070f3;
+    text-decoration: none;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .pagination button.activePage {
+    background-color: #0070f3;
+    color: #fff;
+    border-color: #0070f3;
+  }

@@ -1,0 +1,79 @@
+.container {
+    padding: 20px;
+    color: white;
+    background-color: #2f2f2f;
+  }
+  
+  .addTagForm {
+    margin-bottom: 20px;
+  }
+  
+  .checkboxWrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkboxLabel {
+    display: inline-flex; /* Робить чекбокс і текст у одному рядку */
+    align-items: center; /* Вирівнює по вертикалі */
+    gap: 8px; /* Відступ між чекбоксом і текстом */
+    width: auto; /* Не обмежує ширину */
+  }
+  
+  .checkboxLabel input {
+    width: auto; /* Усуває спадкову ширину */
+    margin: 0; /* Усуває зайві відступи */
+    display: inline-block; /* Робить чекбокс компактним */
+  }
+  
+  .checkboxLabel span {
+    white-space: nowrap; /* Забороняє перенесення тексту */
+  }
+
+  .addTagForm input,
+  .addTagForm select {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .addTagForm label {
+    display: block;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .addTagForm button {
+    padding: 10px 20px;
+    background-color: #ff7043;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .tagList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .tagItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #424242;
+    border-radius: 5px;
+  }
+  
+  .tagItem button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

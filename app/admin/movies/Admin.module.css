@@ -1,0 +1,27 @@
+.moviesList {
+    margin-top: 20px;
+  }
+  
+  .movieItem {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .inputGroup label {
+    display: block;
+    margin-top: 10px;
+    color:#ccc;
+  }
+  
+  .inputGroup input,
+  .inputGroup textarea,
+  .inputGroup select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }

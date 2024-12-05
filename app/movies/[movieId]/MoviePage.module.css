@@ -77,6 +77,38 @@
   line-height: 20px;
   text-align: left;
 }
+
+.bookmark {
+  background-color: #2f2522;
+  background-image: url(../../img/bi_bookmark.png);
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.bookmark:hover {
+  background-color: #3a2f2b;
+  transform: scale(1.1);
+}
+
+.bookmark:active {
+  transform: scale(0.95);
+}
+
+.added {
+  background-color: #4caf50; /* Зелений колір для підтвердження */
+  background-image: url(../../img/bi_bookmark.png); /* Іконка підтвердження */
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .iconRow {
   display: flex;
   gap: 20px;

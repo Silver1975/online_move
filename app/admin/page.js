@@ -45,10 +45,10 @@ export default function AdminPage() {
         </div>
 
         <div className={styles.card}>
-          <h3>Manage Studios</h3>
-          <p>Handle movie studios and their details.</p>
-          <Link href="/admin/moviestudios">
-            <button>Go to Studios</button>
+          <h3>Manage Seasons</h3>
+          <p>Handle movie seasons and their details.</p>
+          <Link href="/admin/seasons">
+            <button>Go to Seasons</button>
           </Link>
         </div>
 

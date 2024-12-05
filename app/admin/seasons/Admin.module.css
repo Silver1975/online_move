@@ -1,0 +1,46 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    color:#ddd;
+  }
+  
+  .inputGroup {
+    margin-bottom: 20px;
+  }
+  
+  .inputGroup label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .inputGroup input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .seasonsList {
+    margin-bottom: 30px;
+  }
+  
+  .seasonItem {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .error {
+    color: red;
+  }
+  .movieName {
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .movieName span {
+    font-weight: bold;
+    color: #555;
+  }
