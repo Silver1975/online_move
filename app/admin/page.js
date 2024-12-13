@@ -18,8 +18,8 @@ export default function AdminPage() {
         <Link href="/admin/countries" className={styles.navItem}>
           Countries
         </Link>
-        <Link href="/admin/moviestudios" className={styles.navItem}>
-          Studios
+        <Link href="/admin/seasons" className={styles.navItem}>
+          Seasons
         </Link>
         <Link href="/admin/movietags" className={styles.navItem}>
           Tags

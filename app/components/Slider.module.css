@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   max-width: 1680px;
-  height: 865px;
+  height: 745px;
   overflow: hidden;
 }
 
@@ -26,6 +26,7 @@
   bottom: 10%; /* Відступ від нижнього краю */
   left: 5%; /* Відступ від лівого краю */
   max-width: 702px;
+  overflow: hidden;
 }
 
 /* Заголовок */
@@ -34,7 +35,7 @@
   font-size: 48px;
   color: #FF7043;
   margin: 0 0 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Тінь для покращення читабельності */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0); /* Тінь для покращення читабельності */
 }
 
 /* Опис */
@@ -43,7 +44,7 @@
   font-size: 16px;
   line-height: 34px;
   color: white;
-  background-color: rgba(0, 0, 0, 0.6); /* Напівпрозорий фон */
+  background-color: rgba(0, 0, 0, 0); /* Напівпрозорий фон */
   padding: 5px 10px;
   border-radius: 8px;
   margin: 0 0 10px;
@@ -58,13 +59,88 @@
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
+  overflow: hidden; /* Сховати вміст, що виходить за межі кнопки */
+  position: relative; /* Позиціонуємо для ::before */
   transition: background-color 0.3s;
 }
 
+.button::before {
+  content: '';
+  position: absolute;
+  bottom: -150%; /* Спочатку кружок повністю під кнопкою */
+  left: 45%; 
+  transform: translateX(-50%);
+  width: 60px; /* Розмір кружка */
+  height: 60px;
+  background-color: #fff;
+  border-radius: 50%; /* Робимо його круглим */
+  transition: all 0.5s ease; /* Плавна анімація для підйому кружка */
+  z-index: 0; /* Задній фон (нижче тексту та кнопки) */
+}
+
+.button:hover::before {
+  bottom: 0; /* Кружок піднімається та повністю займає місце під кнопкою */
+}
+
 .button:hover {
-  background-color: #e05a35;
+  background-color: #fff; /* Колір кнопки змінюється на білий */
+  color: #FF7043; /* Колір тексту змінюється на помаранчевий */
+}
+
+.button span {
+  position: relative; 
+  z-index: 2; /* Зміщує текст на передній план вище за білий кружок */
+}
+
+.button:active {
+  transform: scale(0.95); /* Ефект натискання */
+}
+
+.bookmark {
+  position: relative; /* Встановлюємо відносне позиціонування для створення контексту */
+  background-color: #2f2522;  
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 2px 10px; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  overflow: hidden; /* Забезпечує обрізання внутрішніх елементів, які виходять за межі */
+}
+
+.bookmark::before {
+  content: '';
+  position: absolute;
+  bottom: -100%; /* Ховаємо кружечок під кнопкою */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: #FF7043; /* Колір кружечка */
+  border-radius: 50%;
+  transition: all 0.3s ease; /* Плавний перехід для підйому */
+}
+
+.bookmark img {
+  position: relative; 
+  z-index: 2; /* Іконка зверху */
+  width: 50%;
+  height: 50%;
+}
+
+.bookmark:hover::before {
+  bottom: 0; /* Піднімаємо кружечок до положення кнопки */
+}
+
+.bookmark:hover {
+  background-color: transparent; /* Фон кнопки стає прозорим */
+}
+
+.bookmark:active {
+  transform: scale(0.95);
 }
 
 /* Індикатори */

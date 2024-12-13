@@ -1,0 +1,16 @@
+.loadButton {
+    width: 24px;
+    height: 24px;
+    background-color: #101010;
+    background-image: url('../img/Component 8.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Зміна зображення при наведенні курсора */
+  .loadButton:hover {
+    background-image: url('../img/variant5.png');
+  }

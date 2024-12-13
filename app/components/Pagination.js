@@ -35,18 +35,11 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
   return (
     <div className={styles.paginationContainer}>
-      {/* Кнопка переходу на першу сторінку */}
-      <button
-        className={`${styles.pageButton} ${currentPage === 1 ? styles.disabled : ""} ${styles.firstLastButton}`}
-        onClick={() => onPageChange(1)}
-        disabled={currentPage === 1}
-      >
-        &laquo; First
-      </button>
+      
 
       {/* Кнопка переходу на попередню сторінку */}
       <button
-        className={`${styles.pageButton} ${currentPage === 1 ? styles.disabled : ""}`}
+        className={`${styles.pageArrov} ${currentPage === 1 ? styles.disabled : ""}`}
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
@@ -72,21 +65,14 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
       {/* Кнопка переходу на наступну сторінку */}
       <button
-        className={`${styles.pageButton} ${currentPage === totalPages ? styles.disabled : ""}`}
+        className={`${styles.pageArrov} ${currentPage === totalPages ? styles.disabled : ""}`}
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
         &gt;
       </button>
 
-      {/* Кнопка переходу на останню сторінку */}
-      <button
-        className={`${styles.pageButton} ${currentPage === totalPages ? styles.disabled : ""} ${styles.firstLastButton}`}
-        onClick={() => onPageChange(totalPages)}
-        disabled={currentPage === totalPages}
-      >
-        Lost &raquo;
-      </button>
+      
     </div>
   );
 };

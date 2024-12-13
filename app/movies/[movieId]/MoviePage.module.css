@@ -10,8 +10,8 @@
   width: 100%;
   background-size: cover;
   background-position: center;
-  height: 865px;
-  color: var(--color-primary);
+  height: 745px;
+  color: #FF7043;
 }
 .content {
   display: flex;
@@ -21,7 +21,7 @@
   padding-left: 21px;
 }
 .heroSection h1 {
-  font-family: var(--font-secondary);
+  font-family: 'Inter', sans-serif;
   font-size: 48px;
   font-weight: 700;
   line-height: 58.09px;
@@ -31,7 +31,7 @@
   margin-bottom: 12px;
 }
 .heroSection p {
-  font-family: var(--font-primary);
+  font-family: 'Quicksand', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
@@ -52,7 +52,7 @@
   border-radius: 4px;
 }
 .element {
-  font-family: var(--font-primary);
+  font-family: 'Quicksand', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
@@ -65,36 +65,91 @@
   gap: 20px;
 }
 .watchNow {
+  position: relative; /* Позиціонування для створення контексту */
   padding: 12px 64px;
   background-color: #FF7043;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  font-family: var(--font-primary);
+  font-family: 'Quicksand', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
-  text-align: left;
+  text-align: center;
+  overflow: hidden; /* Ховаємо все, що виходить за межі кнопки */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Плавний перехід для фону та кольору */
 }
 
-.bookmark {
-  background-color: #2f2522;
-  background-image: url(../../img/bi_bookmark.png);
-  background-size: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 60px;
+.watchNow::before {
+  content: '';
+  position: absolute;
+  bottom: -150%; /* Спочатку кружок повністю під кнопкою */
+  left: 50%; 
+  transform: translateX(-50%);
+  width: 60px; /* Розмір кружка */
   height: 60px;
+  background-color: #fff;
+  border-radius: 50%; /* Робимо його круглим */
+  transition: all 0.5s ease; /* Плавна анімація для підйому кружка */
+  z-index: 0; /* Задній фон (нижче тексту та кнопки) */
+}
+
+.watchNow:hover::before {
+  bottom: 0; /* Кружок піднімається та повністю займає місце під кнопкою */
+}
+
+.watchNow:hover {
+  background-color: #fff; /* Колір кнопки змінюється на білий */
+  color: #FF7043; /* Колір тексту змінюється на помаранчевий */
+}
+
+.watchNow span {
+  position: relative; 
+  z-index: 2; /* Зміщує текст на передній план вище за білий кружок */
+}
+
+.watchNow:active {
+  transform: scale(0.95); /* Ефект натискання */
+}
+.bookmark {
+  position: relative; /* Встановлюємо відносне позиціонування для створення контексту */
+  background-color: #2f2522;  
+  width: 44px;
+  height: 44px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  overflow: hidden; /* Забезпечує обрізання внутрішніх елементів, які виходять за межі */
+}
+
+.bookmark::before {
+  content: '';
+  position: absolute;
+  bottom: -100%; /* Ховаємо кружечок під кнопкою */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: #FF7043; /* Колір кружечка */
+  border-radius: 50%;
+  transition: all 0.3s ease; /* Плавний перехід для підйому */
+}
+
+.bookmark img {
+  position: relative; 
+  z-index: 2; /* Іконка зверху */
+  width: 50%;
+  height: 50%;
+}
+
+.bookmark:hover::before {
+  bottom: 0; /* Піднімаємо кружечок до положення кнопки */
 }
 
 .bookmark:hover {
-  background-color: #3a2f2b;
-  transform: scale(1.1);
+  background-color: transparent; /* Фон кнопки стає прозорим */
 }
 
 .bookmark:active {
@@ -138,7 +193,7 @@
 .tabItem {
   display: inline-block;
   padding: 10px 20px;
-  font-family: var(--font-primary);
+  font-family: 'Quicksand', sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;

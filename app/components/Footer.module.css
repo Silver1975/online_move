@@ -1,17 +1,84 @@
-
 .footer {
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    background-color: #101010;
-    border-top: 2px solid #ffffff;
-    color: #f1faee;
-    position: sticky; /* Використовуємо sticky замість absolute */
-    bottom: 0;
-    margin-top: auto; /* Додає відступ внизу сторінки */
-  }
-  
-  .footer p {
-    margin: 0;
-    font-size: 14px;
-  }
+  padding-top: 40px;
+  padding-bottom: 27px;
+  background-color: #101010; 
+  border-top: solid 1px #505050;
+}
+
+.container {
+  max-width: 1324px;
+  margin: 0 auto; /* Центруємо контейнер */
+  border-top: #505050;
+}
+
+.footerItems {
+  display: flex;
+  flex-direction: column; /* Вертикальна структура всіх секцій */
+  align-items: center; /* Центруємо контент по горизонталі */
+  width: 100%; /* Вся ширина доступна */
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: center; /* Центруємо групи посилань по горизонталі */
+  gap: 140px;
+  width: 100%; /* Вся ширина доступна */
+}
+
+.linkColumn {
+  max-width: 1324px;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Вертикальна орієнтація посилань у кожній колонці */
+  gap: 44px;
+  justify-content: space-between;
+}
+
+.linkColumn a {
+  text-decoration: underline;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.linkColumn a:visited,
+.linkColumn a:hover,
+.linkColumn a:active {
+  color: #fff;
+}
+
+.socialLinksContainer {
+  width: 100%; 
+  display: flex; 
+  justify-content: center; /* Центруємо контейнер із соц. мережами */
+}
+
+.socialLinks {
+  width: 1200px; 
+  display: flex; 
+  justify-content: flex-start; /* Іконки вирівняні по лівому краю */
+  gap: 40px; /* Відстань між іконками */
+  align-items: center; /* Центруємо по вертикалі */
+  margin-top: 74px;
+
+}
+
+.socialLinks a {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  text-decoration: none; 
+}
+
+.socialLinks a img {
+  width: 24px; 
+  height: 24px;
+}
+
+.socialLinks a:hover img {
+  filter: brightness(0.8); 
+}

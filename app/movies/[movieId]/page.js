@@ -48,20 +48,16 @@ export default function MoviePage({ params }) {
       console.error("Error:", error);
     }
   };
-  
 
   if (!movie) {
     return <p>Loading...</p>; // Можна замінити на скелетон
   }
-
-
-
   return (
     <>
       <section
         className={styles.heroSection}
         style={{
-          backgroundImage: `url(http://localhost:5221/bigPosters/${movie?.bigPoster?.fileName})`,
+          backgroundImage: `url(http://localhost:5221/Posters/${movie?.poster?.fileName})`,
         }}
       >
         <div className={styles.container}>
@@ -75,13 +71,28 @@ export default function MoviePage({ params }) {
               <div className={styles.element}>{movie.restrictedRating}</div>
             </div>
             <div className={styles.actionRow}>
-              <button className={styles.watchNow}>Watch now</button>
+              <button className={styles.watchNow}> <span>Watch now</span></button>
               <button
                 className={`${styles.bookmark} ${isAddedToFavorites ? styles.added : ""}`}
                 onClick={handleAddToFavorites}
                 disabled={isAddedToFavorites}
               >
                 {isAddedToFavorites ? "Added" : <img src="/img/bi_bookmark.png" alt="Wishlist" />}
+              </button>
+              <button className={styles.bookmark} >
+                 <img src="/img/Group 2.png" alt="Group" />
+              </button>
+              <button className={styles.bookmark} >
+                 <img src="/img/download 01.png" alt="download" />
+              </button>
+              <button className={styles.bookmark} >
+                 <img src="/img/Frame 249.png" alt="like" />
+              </button>
+              <button className={styles.bookmark} >
+                 <img src="/img/Frame 248.png" alt="dislike" />
+              </button>
+              <button className={styles.bookmark} >
+                 <img src="/img/Frame 250.png" alt="Share" />
               </button>
             </div>
           </div>

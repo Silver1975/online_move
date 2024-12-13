@@ -10,24 +10,37 @@
   }
   
   /* Кнопки пагінації */
-  .pageButton {
+  .pageArrov{
     padding: 8px 12px;
-    border: 1px solid #ddd;
-    background: #f5f5f5;
+    border: 1px solid #101010;
+    background: #101010;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
+    color:#FF7043;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  .pageButton {
+    padding: 8px 12px;
+    border: 1px solid #101010;
+    background: #101010;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    color:#FFf;
+    font-family: 'Quicksand', sans-serif;
   }
   
   .pageButton:hover {
-    background: #e1e1e1;
+    border-radius: solid 1px #ff7043;
+
   }
   
   /* Активна сторінка */
   .active {
-    background: #0072f5;
-    color: white;
-    border: none;
+    text-decoration: underline;
+    color: #ff7043;
   }
   
   /* Вимкнені кнопки */

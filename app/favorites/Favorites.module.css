@@ -1,40 +1,131 @@
-.errorMessage {
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .noFavorites {
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .favoritesPage {
-    padding: 20px;
-    color: white;
-  }
-  
+/* Основний контейнер */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  font-size: 36px;
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Сітка для фільмів */
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+  gap: 20px;
+}
+
+/* Картка фільму */
+.movieCard {
+  background-color: #101010;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+}
+
+/* Постер фільму */
+.posterLink {
+  display: block;
+}
+
+.poster {
+  width: 100%; 
+  aspect-ratio: 3 / 2; /* Пропорція 3:2 */
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.poster:hover {
+  transform: scale(1.05);
+}
+
+.movieInfo {
+  padding: 10px;
+  text-align: center;
+}
+
+.movieTitle {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  color: #FF7043;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.movieTitle:hover {
+  text-decoration: underline;
+}
+
+.deleteButton {
+  background-color: #FF7043;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 10px;
+
+  transition: background-color 0.3s;
+}
+
+.deleteButton:hover {
+  background-color: #fff;
+  color: #FF7043;
+}
+
+.deleteButton:active {
+  transform: scale(0.95);
+}
+
+/* Десктоп */
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Планшети (екрани до 768px) */
+@media (max-width: 768px) {
   .moviesGrid {
-    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
   }
-  
+
   .movieCard {
-    background-color: #333;
-    border-radius: 8px;
-    padding: 10px;
-    color: white;
+    font-size: 14px;
   }
-  
-  .moviePoster {
-    width: 100%;
-    border-radius: 4px;
+}
+
+/* Мобільні пристрої (екрани до 480px) */
+/* 📱 Мобільні пристрої (екрани до 480px) */
+@media (max-width: 480px) {
+  .moviesGrid {
+    grid-template-columns: repeat(1, 1fr); /* Виводимо лише один постер у рядок */
   }
-  
-  .movieInfo {
-    margin-top: 10px;
+
+  .poster {
+    height: auto; 
   }
+
+  .movieTitle {
+    font-size: 16px;
+  }
+
+  .deleteButton {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}

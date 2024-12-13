@@ -6,6 +6,7 @@ import styles from "./ActorsSlider.module.css";
 export default function ActorsSlider({ movieId }) {
   const [actors, setActors] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerPage = 6; // Оголошуємо, що на одному слайді буде 9 акторів
 
   useEffect(() => {
     const fetchActors = async () => {
@@ -22,13 +23,9 @@ export default function ActorsSlider({ movieId }) {
     fetchActors();
   }, [movieId]);
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-  };
-
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
-      Math.min(prevIndex + 1, actors.length - 6)
+      prevIndex + itemsPerPage < actors.length ? prevIndex + itemsPerPage : 0 // Повертаємось до початку
     );
   };
 
@@ -38,36 +35,26 @@ export default function ActorsSlider({ movieId }) {
     <div className={styles.sliderContainer}>
       {actors.length > 0 ? (
         <>
-          <button
-            className={styles.arrowLeft}
-            onClick={handlePrev}
-            disabled={currentIndex === 0}
-          >
-            &#8249;
-          </button>
+          
           <div className={styles.slider}>
             {actors.slice(currentIndex, currentIndex + 6).map((actor) => (
               <div key={actor.id} className={styles.actor}>
                 
                 <img
-  src={actor?.image?.fileName 
-    ? `http://localhost:5221/person/${actor.image.fileName}` 
-    : 'http://localhost:5221/person/avatar.webp'}
-  alt={`${actor.firstName} ${actor.lastName}`}
-  className={styles.actorImage}
-/>
+                  src={actor?.image?.fileName 
+                    ? `http://localhost:5221/person/${actor.image.fileName}` 
+                    : 'http://localhost:5221/person/avatar.webp'}
+                  alt={`${actor.firstName} ${actor.lastName}`}
+                  className={styles.actorImage}
+                />
                 <p className={styles.actorName}>
                   {actor.firstName} {actor.lastName}
                 </p>
               </div>
             ))}
           </div>
-          <button
-            className={styles.arrowRight}
-            onClick={handleNext}
-            disabled={currentIndex + 6 >= actors.length}
-          >
-            &#8250;
+          <button onClick={handleNext} className={styles.navButton}>
+            <img src="/img/vector-arrow.svg" alt="Next" className={styles.navIcon} />
           </button>
         </>
       ) : (

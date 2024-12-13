@@ -1,95 +1,112 @@
-.movieContainer{
-    display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивные столбцы */
-  gap: 20px; /* Расстояние между карточками */
-  max-width: 1200px; /* Максимальная ширина контейнера */
-  margin: 0 auto; /* Центрирование контейнера */
-  padding: 20px; /* Отступы внутри контейнера */
+.moviesСontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
+
+
+/* Сітка для відображення фільмів */
 .moviesGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Сетка */
-    gap: 20px; /* Расстояние между карточками */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+  gap: 20px;
+}
+
+.movieCard {
+  background-color: #101010;
   
-  .movieCard {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    max-width: 316px;
-    max-height: 200px;
-  }
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+}
+
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 3 / 2; /* Пропорція 3:2 для зображення */
+  overflow: hidden;
+}
+
+.movieImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.movieImage:hover {
+  transform: scale(1.1);
+}
+
+.movieTitle {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  color: #FF7043;
+  font-weight: bold;
+  text-decoration: none;
   
-  .movieCard:hover {
-    transform: scale(1.05);
+}
+
+/* Скелетон */
+.skeleton {
+  background-color: #2f2f2f;
+  border-radius: 8px;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #2f2f2f;
   }
-  
-  .imageWrapper {
-    position: relative;
-    overflow: hidden;
+  50% {
+    background-color: #3b3b3b;
   }
-  
-  .movieImage {
-    width: 100%;
-    min-height: 154px;
-    max-height: 162px;
-    height: auto;
-    display: block;
-    border-bottom: 1px solid #ddd; /* Отделяем картинку от текста */
+  100% {
+    background-color: #2f2f2f;
   }
-  
-  .movieTitle {
-    margin: 10px 0;
-    font-size: 16px;
-    color: #333;
-    line-height: 1.4;
-    text-align: center;
-  }
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .paginationButton {
-    padding: 10px 20px;
-    border: none;
-    background-color: #0070f3;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .paginationButton:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+}
+
+/* 📱 Адаптивна версія для планшетів та мобільних пристроїв */
+@media (max-width: 1024px) {
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
 
-  .skeleton {
-    width: 100%;
-    height: 200px; /* Розмір скелетона як у картки */
-    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
-    background-size: 200% 100%;
-    animation: skeleton-loading 1.5s infinite;
-    border-radius: 8px;
+  .movieCard {
+    font-size: 14px;
   }
-  
-  /* Анімація скелетона */
-  @keyframes skeleton-loading {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
+}
+
+@media (max-width: 768px) {
+  .moviesGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
+
+  .movieCard {
+    font-size: 14px;
+  }
+
+  .movieTitle {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .moviesGrid {
+    grid-template-columns: repeat(1, 1fr); /* Відображення по одному фільму в рядок */
+  }
+
+  .movieTitle {
+    font-size: 14px;
+  }
+
+  .imageWrapper {
+    aspect-ratio: 2 / 3; /* Високий постер на мобільних */
+  }
+}

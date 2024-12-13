@@ -128,6 +128,7 @@ export default function AuthForm({ isLogin = false }) {
             onChange={(e) => setRememberMe(e.target.checked)}
           />
           <label htmlFor="rememberMe">Запам'ятати мене</label>
+          
         </div>
       )}
 

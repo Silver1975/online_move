@@ -2,11 +2,11 @@
   width: 100%;
   max-width: 1680px;
   margin: 0 auto;
-  padding: 20px;
+  
 }
 
 .main {
-  max-width: 1200px;
+  max-width: 1324px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Динамічне розміщення карток */
   gap: 20px;
@@ -39,14 +39,14 @@
 }
 
 .sectionTitle {
-  max-width: 1200px;
-  font-family: var(--font-primary);
+  max-width: 1324px;
+  font-family: 'Quicksand', sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
   text-align: left;
-  color: #ff7043;
-  margin: 10px auto;
+  color: #fff;
+  margin: 32px auto 8px;
  
 }
 /* Пагінація */

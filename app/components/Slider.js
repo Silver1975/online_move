@@ -4,19 +4,19 @@ import styles from "./Slider.module.css"; // Підключаємо стилі
 
 const images = [
   {
-    src: "/img/Rectangle1.png",
+    src: "/img/Rectangle4.png",
     title: "Batman",
     description:
       "A killer targets Gotham's elite sending Batman on an investigation. As evidence mounts, he must forge new relationships, unmask the culprit, and bring justice to corruption.",
   },
   {
-    src: "/img/Rectangle2.png",
+    src: "/img/Rectangle2.jpg",
     title: "Superman",
     description:
       "Superman must battle his greatest foes while striving to maintain the hope and trust of the people of Metropolis.",
   },
   {
-    src: "/img/Rectangle3.png",
+    src: "/img/Rectangle3.jpg",
     title: "Wonder Woman",
     description:
       "Wonder Woman embarks on a journey to save the world and uncover the truth about her past.",
@@ -55,7 +55,16 @@ export default function Slider() {
           {images[currentIndex].description}
         </p>
         <button className={styles.button} onClick={() => alert("Coming soon!")}>
-          Whatch soon
+         <span>Whatch soon</span> 
+        </button>
+        <button className={styles.bookmark}>
+                <img src="/img/bi_bookmark.png" alt="Wishlist" />
+        </button>
+        <button className={styles.bookmark} >
+                 <img src="/img/Group 2.png" alt="Group" />
+        </button>
+        <button className={styles.bookmark} >
+                 <img src="/img/Frame 250.png" alt="Share" />
         </button>
       </div>
 

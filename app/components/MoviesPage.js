@@ -40,7 +40,7 @@ export default function MoviesPage({ typeId, title }) {
 
     return (
       <div className={styles.moviesСontainer}>
-        <h1 style={{ fontSize: '16px', textAlign: 'center', color: 'white' }}>{title}</h1>
+        <h1 style={{ fontSize: '24px', textAlign: 'center', color: 'white', fontFamily:"'Quicksand', sans-serif" }}>{title}</h1>
         <div className={styles.moviesGrid}>
         {loading ? (
           Array.from({ length: limit }).map((_, index) => (

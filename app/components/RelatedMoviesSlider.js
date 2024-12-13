@@ -28,12 +28,7 @@ export default function RelatedMoviesSlider({ movieId, tags }) {
       fetchMovies();
     }, [movieId, tags]);
   
-    const scrollLeft = () => {
-      sliderRef.current.scrollBy({
-        left: -300, // Змінити на розмір елемента
-        behavior: "smooth",
-      });
-    };
+    
   
     const scrollRight = () => {
       sliderRef.current.scrollBy({
@@ -44,9 +39,7 @@ export default function RelatedMoviesSlider({ movieId, tags }) {
   
     return (
       <div className={styles.sliderWrapper}>
-        <button className={styles.scrollButtonLeft} onClick={scrollLeft}>
-          &#8592;
-        </button>
+       
         <div className={styles.sliderContainer} ref={sliderRef}>
           {relatedMovies.slice(0, 10).map((movie) => (
             <div className={styles.box1} key={movie.id}>
@@ -59,8 +52,8 @@ export default function RelatedMoviesSlider({ movieId, tags }) {
           ))}
         </div>
         <button className={styles.scrollButtonRight} onClick={scrollRight}>
-          &#8594;
-        </button>
+        <img src="../img/vector-arrow.svg" alt="Next" className={styles.arrowIcon} />
+      </button>
       </div>
     );
   }

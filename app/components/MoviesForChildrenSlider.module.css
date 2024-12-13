@@ -1,92 +1,160 @@
 .slider {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 1324px;
+  margin: 0 auto;
+}
+
+.slidesContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.box {
+  position: relative;
+  width: 316px;
+  height: 200px;
+  background-color: #505050;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.box:hover {
+  width: 364px;
+  height: 540px;
+  border-radius: 8px;
+}
+
+.boxImage img {
+  width: 316px;
+  height: 200px;
+  border-radius: 8px;
+}
+
+.hoverCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #505050;
+  transition: height 0.3s ease;
+  overflow: hidden;
+}
+
+.box:hover .hoverCard {
+  width: 342px;
+  height: 540px;
+  border-radius: 8px;
+}
+
+.cardImage {
+  width: 316px;
+  height: 200px;
+  margin: 24px auto 0 auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.movieTitle {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  color: white;
+  margin: 16px 24px;
+  text-align: left;
+}
+
+.watchButton {
+  display: block;
+  width: 316px;
+  height: 44px;
+  background-color: #ff7043;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  margin: 16px auto;
+  cursor:pointer;
+}
+
+.watchButton:hover{
+  background-color:white;
+  color:#ff7043;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.flexElements {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.movieDescription {
+  font-size: 14px;
+  color: white;
+  margin: 16px;
+  text-align: center;
+}
+
+
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  background: transparent; /* Прозорий фон */
+  border: none; /* Видаляємо рамку */
+  width: 10px; 
+  height: 40px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.arrowRight img {
+  width: 10px;
+  height: 40px;
+}
+
+.arrowRight:hover img {
+  filter: brightness(0.8); /* Легке затемнення при наведенні */
+}
+
+.skeletonBox {
+  width: 317px;
+  height: 200px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+
+.skeletonImage {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f3f3f3 25%, #ecebeb 50%, #f3f3f3 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
   }
-  
-  .slidesContainer {
-    display: flex;
-    gap: 16px;
-    justify-content: flex-start;
-    align-items: center;
-    transition: transform 0.3s ease-in-out;
+  100% {
+    background-position: -200% 0;
   }
-  
-  .box {
-    flex: 1 1 calc(25% - 16px); /* Забезпечує відображення до 4-х елементів */
-    max-width: calc(25% - 16px);
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-  
-  .box:nth-child(n+2) {
-    text-align: center; /* Упевнюємося, що текст рівномірно розташований */
-  }
-  
-  .boxImage img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-  }
-  
-  .boxImage img:hover {
-    transform: scale(1.05);
-  }
-  
-  .arrowLeft,
-  .arrowRight {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 10;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-  }
-  
-  .arrowLeft {
-    left: 10px;
-  }
-  
-  .arrowRight {
-    right: 10px;
-  }
-  
-  
-  .slidesContainer {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .skeletonBox {
-    width: 317px; /* Ширина картки */
-    height: 200px; /* Висота картки */
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .skeletonImage {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #f3f3f3 25%, #ecebeb 50%, #f3f3f3 75%);
-    background-size: 200% 100%;
-    animation: skeleton-loading 1.5s infinite;
-  }
-  
-  @keyframes skeleton-loading {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
-  }
+}

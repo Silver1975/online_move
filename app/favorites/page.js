@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useRouter } from "next/navigation";
+import styles from "./Favorites.module.css"; // Підключаємо стилі
 
 export default function FavoritesPage() {
   const { user, isLoading } = useAuth();
@@ -12,7 +13,7 @@ export default function FavoritesPage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (isLoading) return; // Чекаємо завершення завантаження даних користувача
+    if (isLoading) return;
 
     if (!user) {
       router.push("/login");
@@ -43,21 +44,17 @@ export default function FavoritesPage() {
 
   const handleRemoveFavorite = async (movieId) => {
     try {
-      console.log("Removing movie with ID:", movieId);
-  
-      const res = await fetch("http://localhost:5221/api/user/favourite?movieId=" + movieId, {
+      const res = await fetch(`http://localhost:5221/api/user/favourite?movieId=${movieId}`, {
         method: "DELETE",
-        credentials: "include", // Передаємо куки для авторизації
+        credentials: "include", 
       });
   
       if (!res.ok) {
         throw new Error("Failed to remove favorite movie.");
       }
   
-      // Оновлення списку фільмів
       setFavorites((prev) => prev.filter((movie) => movie.id !== movieId));
     } catch (err) {
-      console.error("Error removing favorite:", err.message);
       setError(err.message);
     }
   };
@@ -75,42 +72,36 @@ export default function FavoritesPage() {
   }
 
   return (
-    <div>
-      <h1 style={{ color: "white" }}>My Favorite Movies</h1>
-      <ul style={{ listStyle: "none", padding: 0 }}>
+    <div className={styles.container}>
+      <h1 className={styles.title}>My Favorite Movies</h1>
+
+      <div className={styles.moviesGrid}>
         {favorites.map((movie) => (
-          <li
-            key={movie.id}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: "10px",
-              color: "white",
-            }}
-          >
-            <a
-              href={`/movies/${movie.id}`}
-              style={{ color: "#61dafb", textDecoration: "none" }}
-            >
-              {movie.name}
+          <div key={movie.id} className={styles.movieCard}>
+            <a href={`/movies/${movie.id}`} className={styles.posterLink}>
+              <img
+                src={`http://localhost:5221/posters/${movie?.poster}`} 
+                alt={movie.name}
+                className={styles.poster}
+              />
             </a>
-            <button
-              onClick={() => handleRemoveFavorite(movie.id)}
-              style={{
-                backgroundColor: "#ff7043",
-                color: "white",
-                border: "none",
-                borderRadius: "4px",
-                padding: "5px 10px",
-                cursor: "pointer",
-              }}
-            >
-              Remove
-            </button>
-          </li>
+            <div className={styles.movieInfo}>
+              <a
+                href={`/movies/${movie.id}`}
+                className={styles.movieTitle}
+              >
+                {movie.name}
+              </a>
+              <button
+                onClick={() => handleRemoveFavorite(movie.id)}
+                className={styles.deleteButton}
+              >
+                Remove
+              </button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

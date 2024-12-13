@@ -29,42 +29,44 @@ export default function MoviesSlider() {
     );
   };
 
-  const handlePrevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? movies.length - 1 : prevIndex - 1
-    );
-  };
-
   const handleWatchMore = (movieId) => {
     router.push(`/movies/${movieId}`);
   };
 
   return (
-    <div className={styles.slider}>
+    <div className={styles.sliderWrapper}>
       {movies.length > 0 ? (
         <>
-          <button onClick={handlePrevSlide} className={styles.arrowLeft}>
-            &#8249;
-          </button>
-          <div className={styles.slide}>
-            <img
-              src={`http://localhost:5221/bigPosters/${movies[currentIndex]?.bigPoster?.fileName}`}
-              alt={movies[currentIndex].name}
-              className={styles.slideImage}
-            />
-            <h2 className={styles.slideTitle}>{movies[currentIndex].name}</h2>
-            <p className={styles.slideDescription}>
-              {movies[currentIndex].description}
-            </p>
-            <button
-              className={styles.button}
-              onClick={() => handleWatchMore(movies[currentIndex].id)}
-            >
-              Watch more
-            </button>
+          <div className={styles.sliderContent}>
+            <div className={styles.slider}>
+              <div className={styles.slide}>
+                <img
+                  src={`http://localhost:5221/bigPosters/${movies[currentIndex]?.bigPoster?.fileName}`}
+                  alt={movies[currentIndex].name}
+                  className={styles.slideImage}
+                />
+                <h2 className={styles.slideTitle}>{movies[currentIndex].name}</h2>
+                <p className={styles.slideDescription}>
+                  {movies[currentIndex].description}
+                </p>
+                <button
+                  className={styles.button}
+                  onClick={() => handleWatchMore(movies[currentIndex].id)}
+                >
+                  <span>Watch more</span>
+                </button>
+              </div>
+            </div>
           </div>
+  
           <button onClick={handleNextSlide} className={styles.arrowRight}>
-            &#8250;
+            <img src="/img/vector-arrow.svg" alt="Next" />
+          </button>
+          <button className={styles.bookmark} >
+           <img src="/img/bi_bookmark.png" alt="Wishlist" />
+          </button>
+          <button className={styles.bookmark} >
+                 <img src="/img/Group 2.png" alt="Group" />
           </button>
         </>
       ) : (

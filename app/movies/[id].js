@@ -34,7 +34,7 @@ export default function MoviePage() {
     <div>
       {/* Hero Section */}
       <section className={styles.heroSection}   style={{
-        backgroundImage: `url(http://localhost:5221${movie.bigPoster})`,
+        backgroundImage: `url(http://localhost:5221${movie.poster})`,
       }}>
         <div className={styles.container}>
           <div className={styles.content}>

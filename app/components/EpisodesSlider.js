@@ -31,29 +31,19 @@ export default function EpisodesSlider({ seasonId }) {
     fetchEpisodes();
   }, [seasonId]);
 
-  const handleNext = () => {
-    if (currentIndex + itemsPerPage < episodes.length) {
-      setCurrentIndex((prev) => prev + itemsPerPage);
-    }
-  };
+ 
 
-  const handlePrev = () => {
-    if (currentIndex - itemsPerPage >= 0) {
-      setCurrentIndex((prev) => prev - itemsPerPage);
-    }
+  const handleNext = () => {
+    setCurrentIndex((prev) => 
+      prev + itemsPerPage < episodes.length ? prev + itemsPerPage : 0 
+    );
   };
 
   const visibleEpisodes = episodes.slice(currentIndex, currentIndex + itemsPerPage);
 
   return (
     <div className={styles.slider}>
-      <button
-        onClick={handlePrev}
-        disabled={currentIndex === 0}
-        className={styles.navButton}
-      >
-        &lt;
-      </button>
+     
 
       <div className={styles.episodes}>
         {visibleEpisodes.map((episode) => (
@@ -76,12 +66,8 @@ export default function EpisodesSlider({ seasonId }) {
         ))}
       </div>
 
-      <button
-        onClick={handleNext}
-        disabled={currentIndex + itemsPerPage >= episodes.length}
-        className={styles.navButton}
-      >
-        &gt;
+      <button onClick={handleNext} className={styles.navButton}>
+        <img src="/img/vector-arrow.svg" alt="Next" className={styles.navIcon} />
       </button>
     </div>
   );

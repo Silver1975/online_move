@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Slider from './components/Slider';
 import MoviesSlider from "./components/MoviesSlider";
 import ComediesSlider from "./components/ComediesSlider";
+import ActionSlider from './components/ActionSlider';
 import MoviesForChildrenSlider from './components/MoviesForChildrenSlider';
 import Pagination from './components/Pagination'; // Підключаємо наш компонент пагінації
 import styles from './page.module.css';
@@ -54,9 +55,11 @@ export default function Home() {
    
     <div className={styles.page}>
        <Slider />
+       <p className={styles.sectionTitle}>Action</p>
+       <ActionSlider />
        <p className={styles.sectionTitle}>For children</p>
        <MoviesForChildrenSlider />
-       <p className={styles.sectionTitle}>Top drams</p> 
+       <p style={{color:"#ff7432"}} className={styles.sectionTitle}>Top drams</p> 
        <MoviesSlider />
        <p className={styles.sectionTitle}>For funy evening</p> 
       <ComediesSlider />

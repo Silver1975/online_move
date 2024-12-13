@@ -93,19 +93,33 @@ export default function Tabs({ movie }) {
           <div className={styles.detail}>
             <h3>Description</h3>
             <p>{movie.description}</p>
+            <h3>The First Air Date</h3>
+            <p>
+  {movie.firstAirDate &&
+    new Intl.DateTimeFormat('uk-UA', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    }).format(new Date(movie.firstAirDate))}
+</p>
+            <h3>Countries</h3>
+            <p>{movie.countries.join(", ")}</p>
             <h3>Genres</h3>
             <p>{movie.tags.join(", ")}</p>
+            <h3>Audio languages</h3>
+            <p>English, Català, Deutsch, Español, Français, Italiano, Magyar, Polski, Português, Türkçe, Čeština, العربية, हिन्दी, தமிழ், తెలుగు, 日本語</p>
             <h3>Watch offline</h3>
             <p>Download and watch everywhere you go.</p>
+
           </div>
         )}
         {activeTab === "episodes" && (
           <div>
-            <h3 className={styles.title}>Episodes</h3>
+            
             {seasons.length > 0 ? (
               seasons.map((season) => (
                 <div key={season.id} className={styles.seasonBlock}>
-                  <h4 style={{color:"#fff"}}>{season.name || `Season ${season.number}`}</h4>
+                  <h4 style={{color:"#fff",  fontFamily: 'Quicksand, sans-serif' , fontSize:"16px"}}>{season.name || `Season ${season.number}`}</h4>
                   <EpisodesSlider seasonId={season.id} />
                 </div>
               ))
@@ -116,19 +130,19 @@ export default function Tabs({ movie }) {
         )}
         {activeTab === "cast" && (
           <div>
-            <h3 className={styles.title}>Cast</h3>
+            <p style={{fontFamily:"'Quicksand', sans-serif", color:"#fff"}}>Cast</p>
             <ActorsSlider movieId={movie.id} />
           </div>
         )}
         {activeTab === "related" && (
           <div>
-            <h3 className={styles.title}>Related Movies</h3>
+            
             <RelatedMoviesSlider movieId={movie.id} tags={movie.tags} />
           </div>
         )}
           {activeTab === "reviews" && (
           <div>
-            <h3 className={styles.title}>Reviews</h3>
+            
             {/* Вивести огляди */}
             
             {/*{loading ? (

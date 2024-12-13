@@ -1,66 +1,66 @@
 .sliderWrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  .sliderContainer {
-    display: flex;
-    gap: 16px;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    padding: 16px 0;
-    flex: 1;
-    scrollbar-width: none; /* Для Firefox */
-  }
-  
-  .sliderContainer::-webkit-scrollbar {
-    display: none; /* Приховати скролбар */
-  }
-  
-  .box1 {
-    flex: 0 0 calc(25% - 16px);
-    display: flex;
-    justify-content: center;
-  }
-  
-  .boxImage1 img {
-    width: 100%;
-    border-radius: 8px;
-    object-fit: cover;
-    transition: transform 0.3s;
-  }
-  
-  .boxImage1 img:hover {
-    transform: scale(1.05);
-  }
-  
-  .scrollBbutton {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.3s;
-  }
-  
-  .scrollButton:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-  
-  .scrollButtonLeft {
-    left: -20px;
-  }
-  
-  .scrollButtonRight {
-    right: -20px;
-  }
+  position: relative;
+  width: 1400px; 
+  margin: 0 auto;
+  overflow: hidden; /* Щоб не було горизонтальної прокрутки */
+}
+
+.sliderContainer {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.box1 {
+  flex: 0 0 auto; 
+  width: 316px; 
+  height: 210px;
+  margin-top: 20px; 
+  margin-right: 20px; 
+}
+
+.boxImage1 img {
+  width: 315px; 
+  height: 200px; 
+  border-radius: 8px; 
+  transition: transform 0.3s ease;
+}
+
+.boxImage1 img:hover {
+  transform: scale(1.05); 
+}
+
+.scrollButtonRight {
+  position: absolute;
+  top: 50%;
+  right: -10px; 
+  transform: translateY(-50%);
+  width: 48px; 
+  height: 48px; 
+  background-color: transparent; 
+  border: none; 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 10; 
+}
+
+.arrowIcon {
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+  transition: transform 0.3s ease;
+}
+
+.scrollButtonRight:hover .arrowIcon {
+  transform: scale(1.1);
+}
+
+.scrollButtonRight:focus {
+  outline: none; 
+}
+
+.scrollButtonRight:hover {
+  background-color: transparent; 
+}
